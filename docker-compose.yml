@@ -104,8 +104,17 @@ services:
       
       # Chatwoot
       SECRET_KEY_BASE: ${CHATWOOT_SECRET_KEY_BASE:-replace_with_random_string}
-      FRONTEND_URL: ${CHATWOOT_FRONTEND_URL:-http://localhost:3000}
-      FORCE_SSL: ${CHATWOOT_FORCE_SSL:-false}
+      # FRONTEND_URL: ${CHATWOOT_FRONTEND_URL:-http://localhost:3000}
+      # FORCE_SSL: ${CHATWOOT_FORCE_SSL:-false}
+      # >>> ALTERADO AQUI: Nova URL com HTTPS
+      FRONTEND_URL: https://chatwoot.f5sys.com.br 
+      FORCE_SSL: true # Força o Chatwoot a usar HTTPS
+
+      # >>> ADICIONADO AQUI: Configurações do Proxy Reverso (jwilder/nginx-proxy)
+      VIRTUAL_HOST: chatwoot.f5sys.com.br
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: chatwoot.f5sys.com.br
+      LETSENCRYPT_EMAIL: fernando@f5sys.com.br      
       
       # Email (Opcional - configure se necessário)
       MAILER_SENDER_EMAIL: ${MAILER_SENDER_EMAIL:-notifications@example.com}
@@ -159,8 +168,10 @@ services:
       
       # Chatwoot
       SECRET_KEY_BASE: ${CHATWOOT_SECRET_KEY_BASE:-replace_with_random_string}
-      FRONTEND_URL: ${CHATWOOT_FRONTEND_URL:-http://localhost:3000}
-      FORCE_SSL: ${CHATWOOT_FORCE_SSL:-false}
+      # FRONTEND_URL: ${CHATWOOT_FRONTEND_URL:-http://localhost:3000}
+      # FORCE_SSL: ${CHATWOOT_FORCE_SSL:-false}
+      FRONTEND_URL: https://chatwoot.f5sys.com.br
+      FORCE_SSL: true      
       
       # Email (Opcional)
       MAILER_SENDER_EMAIL: ${MAILER_SENDER_EMAIL:-notifications@example.com}
